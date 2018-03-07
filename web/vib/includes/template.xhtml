@@ -1,0 +1,80 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>VIB e-Money</title> 
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <link rel="stylesheet" type="text/css" href="${facesContext.externalContext.requestContextPath}/assets/lib/bootstrap/css/bootstrap.min.css"/>
+        <link rel="stylesheet" type="text/css" href="${facesContext.externalContext.requestContextPath}/assets/lib/font-awesome/css/font-awesome.min.css" /> 
+        <!--<link rel="stylesheet" type="text/css" href="../assets/lib/select2/css/select2.min.css" />-->
+        <link rel="stylesheet" type="text/css" href="${facesContext.externalContext.requestContextPath}/assets/lib/jquery.bxslider/jquery.bxslider.css" />
+        <link rel="stylesheet" type="text/css" href="${facesContext.externalContext.requestContextPath}/assets/lib/owl.carousel/owl.carousel.css" />
+        <link rel="stylesheet" type="text/css" href="${facesContext.externalContext.requestContextPath}/assets/lib/fancyBox/jquery.fancybox.css" />
+        <link rel="stylesheet" type="text/css" href="${facesContext.externalContext.requestContextPath}/assets/lib/jquery-ui/jquery-ui.css" />
+        <link rel="stylesheet" type="text/css" href="${facesContext.externalContext.requestContextPath}/assets/css/animate.css" />
+        <link rel="stylesheet" type="text/css" href="${facesContext.externalContext.requestContextPath}/assets/css/reset.css" />
+        <link rel="stylesheet" type="text/css" href="${facesContext.externalContext.requestContextPath}/assets/css/style.css" />
+        <link rel="stylesheet" type="text/css" href="${facesContext.externalContext.requestContextPath}/assets/css/responsive.css" />
+        <style>
+            .go-top {
+                position: fixed;
+                bottom: 2.5em;
+                right: 2em;
+                text-decoration: none;
+                color: white;
+                background-color: #D82F28;
+                font-size: 12px;
+                padding: 1em;
+                display: none;
+            }
+            .go-top:hover {
+                background-color: #fff;
+            }
+        </style>
+    </h:head>
+    <h:body>
+        <ui:insert name="header">
+            <ui:include src="header.xhtml"/>
+        </ui:insert>      
+        <div class="maincontentdiv">
+            <ui:insert name="maincontent">
+                <ui:include src="content.xhtml"/>
+            </ui:insert>
+        </div>
+        <ui:insert name="footer">
+            <ui:include src="footer.xhtml"/>
+        </ui:insert> 
+        <script>
+            $(document).ready(function() {
+                // Show or hide the sticky footer button
+                $(window).scroll(function() {
+                    if ($(this).scrollTop() > 200) {
+                        $('.go-top').fadeIn(200);
+                    } else {
+                        $('.go-top').fadeOut(200);
+                    }
+                });
+
+                // Animate the scroll to top
+                $('.go-top').click(function(event) {
+                    event.preventDefault();
+                    $('html, body').animate({scrollTop: 0}, 300);
+                });
+            });
+        </script>
+        <Script type="text/javascript" src="${facesContext.externalContext.requestContextPath}/assets/lib/select2/js/select2.min.js"></Script>
+        <!--<Script type="text/javascript" src="../assets/lib/jquery/jquery-1.11.2.min.js"></Script>-->
+        <Script type="text/javascript" src="${facesContext.externalContext.requestContextPath}/assets/lib/jquery.bxslider/jquery.bxslider.min.js"></Script>       
+        <Script type="text/javascript" src="${facesContext.externalContext.requestContextPath}/assets/lib/jquery.countdown/jquery.countdown.min.js"></Script>               
+        <Script type="text/javascript" src="${facesContext.externalContext.requestContextPath}/assets/js/jquery.actual.min.js"></Script>               
+        <Script type="text/javascript" src="${facesContext.externalContext.requestContextPath}/assets/lib/fancyBox/jquery.fancybox.js"></Script>               
+        <Script type="text/javascript" src="${facesContext.externalContext.requestContextPath}/assets/lib/jquery.elevatezoom.js"></Script>                  
+        <script type="text/javascript"  src="${facesContext.externalContext.requestContextPath}/assets/lib/bootstrap/js/bootstrap.min.js"></script>        
+        <script type="text/javascript" src="${facesContext.externalContext.requestContextPath}/assets/lib/owl.carousel/owl.carousel.min.js"></script>        
+        <script type="text/javascript" src="${facesContext.externalContext.requestContextPath}/assets/js/theme-script.js"></script>
+    </h:body>
+</html>
+

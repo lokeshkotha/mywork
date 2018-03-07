@@ -1,0 +1,121 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <h:head>
+        <title>Facelet Title</title>
+        <style>
+            .color{
+                background-color: #E0DDF0;
+            }
+        </style>
+    </h:head>
+    <h:body>
+        <ui:composition template="../includes/template.xhtml">
+            <ui:define name="maincontent">
+                <h:form id="mainform1">
+                    <div class="page-top">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-xs-12 col-sm-12 page-top-left">
+                                    <div class="popular-tabs">
+                                        <ul class="nav-tab">
+                                            <li class="active"><a data-toggle="tab" href="#tab-1">Invoices</a></li>                                            
+                                        </ul>
+                                        <style>
+                                            .ui-widget-content{
+                                                border: none !important;
+                                            }
+                                            .my-invoices_img{
+                                                width: 150px;
+                                                height: 100px; 
+                                            }
+                                            .my-invoices_bold{
+                                                color: #D82F28;
+                                                font-weight: 700;
+                                                font-size: 17px
+                                            }
+                                            /*                                            .ui-dialog-title{
+                                                                                            background-color: rgb(216,47,40) !important;
+                                                                                            color: white !important;
+                                                                                            font-weight: bold !important;
+                                                                                        }*/
+                                        </style>
+                                        <div class="tab-container">
+                                            <div id="tab-1" class="tab-panel active">
+                                                <c:choose>
+                                                    <c:when test="#{UsersBean.invoicelist.size() > 0}">
+                                                        <div class="ui-g" style="background-color: #D82F28;color: #fff">                                                    
+                                                            <div class="ui-g-3">Order No</div>
+                                                            <div class="ui-g-2">Order Date</div>
+                                                            <div class="ui-g-2">Price</div>
+                                                            <div class="ui-g-3">Payment ID</div>
+                                                            <div class="ui-g-2">Order Details</div>
+                                                        </div>
+                                                        <p:dataScroller value="#{UsersBean.invoicelist}" var="invl" chunkSize="2">
+                                                            <c:if test="#{UsersBean.invoicelist.size() > 2}">
+                                                                <f:facet name="loader"> 
+                                                                    <p:commandButton type="button" styleClass="view-more-button" value="Show More" icon="fa fa-chevron-circle-down" style="width: 150px !important;padding: 4px" />                                    
+                                                                </f:facet>
+                                                            </c:if>
+                                                            <!--<p:repeat value="{UsersBean.invoicelist}" varStatus="" offset="0" step="1" var="invl" size="{UsersBean.invoicelist.size()}">-->
+                                                            <div class="ui-g" style="border-bottom: 1px dotted #E0DDF0">
+                                                                <div class="ui-g-3"><span>#{invl.orderno}</span></div>
+                                                                <div class="ui-g-2">
+                                                                    <span>
+                                                                        <h:outputText value="#{invl.createddate}" >
+                                                                            <f:convertDateTime pattern="dd-MM-yyyy HH:mm" />
+                                                                        </h:outputText>
+                                                                    </span>
+                                                                </div>
+                                                                <div class="ui-g-2"><span class="my-invoices_bold">$ #{invl.totalamount}</span></div>
+                                                                <div class="ui-g-3"><span>#{invl.paymentid}</span></div>  
+                                                                <div class="ui-g-2"> 
+                                                                    <p:commandLink  value="View Details" update=":mainform1,dialog" style="font-size: 12px;color: #D82F28" styleClass="myoverlay" actionListener="#{UsersBean.invoiceProducts(invl.id)}" oncomplete="PF('dlg').show()"  />
+                                                                    <p:dialog header="Purchase Details" id="dialog" widgetVar="dlg" modal="true" resizable="false" draggable="false"  closeOnEscape="true" position="relative" width="600px" style="margin-left: 300px;margin-top: -200px">
+                                                                        <p:repeat value="#{UsersBean.invprdtlist}" varStatus="" offset="0" step="1" var="prlist" size="#{UsersBean.invprdtlist.size()}">  
+                                                                            <div class="col-md-12" style="padding-top: 15px">
+                                                                                <div class="col-md-4">
+                                                                                    <h:graphicImage styleClass="my-invoices_img" value="#{prlist.productid.smallimageurl}"></h:graphicImage> 
+                                                                                </div>
+                                                                                <div class="col-md-8">
+                                                                                    <ul>
+                                                                                        <li><span class="my-invoices_bold">#{prlist.productid.productname}</span></li>
+                                                                                        <li><span style="font-size: 12px"><small>#{prlist.productid.description}</small></span></li>
+                                                                                        <li><span class="my-invoices_bold">$#{prlist.price}</span></li>
+                                                                                    </ul> 
+                                                                                </div>
+                                                                            </div>
+                                                                        </p:repeat>
+                                                                    </p:dialog>
+                                                                </div>
+                                                            </div>
+                                                            <!--</p:repeat>-->
+                                                        </p:dataScroller>
+                                                    </c:when>
+                                                    <c:otherwise>
+                                                        <div class="ui-g" style="border-bottom: 1px dotted #E0DDF0">
+                                                            <div class="ui-g-12" style="text-align: center">
+                                                                <div class="badge" style="padding: 10px;background-color: rgb(216,47,40)">No Invoices Available!</div>
+                                                            </div>
+                                                        </div>
+                                                    </c:otherwise>
+                                                </c:choose>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </h:form>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>
+

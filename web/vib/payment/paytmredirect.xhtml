@@ -1,0 +1,66 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+        <title>VIB eMoney</title>
+    </h:head>
+    <h:body>
+        <style type="text/css">
+            .mine {
+                margin: auto;
+                position: absolute;
+                top: 35%;
+                width: 100%;
+                text-align: center;
+            }
+            .loader {
+                border: 16px solid #f3f3f3;
+                border-radius: 50%;
+                border-top: 16px solid #3498db;
+                width: 120px;
+                height: 120px;
+                -webkit-animation: spin 2s linear infinite;
+                animation: spin 2s linear infinite;
+                margin: auto;
+            }
+
+            @-webkit-keyframes spin {
+                0% { -webkit-transform: rotate(0deg); }
+                100% { -webkit-transform: rotate(360deg); }
+            }
+
+            @keyframes spin {
+                0% { transform: rotate(0deg); }
+                100% { transform: rotate(360deg); }
+            }
+        </style>
+        <div class="container container-table">
+            <div class="mine">
+                <div class="loader"></div>
+                <div style="padding: 6px;color: rgb(52,152,219)"><b>Loading please do not refresh this page...</b></div>
+            </div>
+        </div>
+        <script type="text/javascript">
+            window.onload = function() {
+                document.forms['paytmform'].submit();
+            };
+//            document.f1.submit();
+        </script>
+        <form id="paytmform" action="#{UsersBean.paytmmap.get('PAYTM_URL')}" method="post" name="f1">
+            <input type="hidden" name="ORDER_ID" id="ORDER_ID" value="#{UsersBean.paytmmap.get('ORDER_ID')}"></input>
+            <input type="hidden" name="CUST_ID" id="CUST_ID" value="#{UsersBean.paytmmap.get('CUST_ID')}"></input>
+            <input type="hidden" name="MID" id="MID" value="#{UsersBean.paytmmap.get('MID')}"></input>
+            <input type="hidden" name="TXN_AMOUNT" id="TXN_AMOUNT" value="#{UsersBean.paytmmap.get('TXN_AMOUNT')}"></input>
+            <input type="hidden" name="CHANNEL_ID" id="CHANNEL_ID" value="#{UsersBean.paytmmap.get('CHANNEL_ID')}" ></input>
+            <input type="hidden" name="INDUSTRY_TYPE_ID" id="INDUSTRY_TYPE_ID" value="#{UsersBean.paytmmap.get('INDUSTRY_TYPE_ID')}" ></input>
+            <input type="hidden" name="WEBSITE" id="WEBSITE" value="#{UsersBean.paytmmap.get('WEBSITE')}" ></input>
+            <input type="hidden" name="MOBILE_NO" id="MOBILE_NO" value="#{UsersBean.paytmmap.get('MOBILE_NO')}" ></input>
+            <input type="hidden" name="EMAIL" id="EMAIL" value="#{UsersBean.paytmmap.get('EMAIL')}" ></input>
+            <input type="hidden" name="CALLBACK_URL" id="CALLBACK_URL" value="#{UsersBean.paytmmap.get('CALLBACK_URL')}" ></input>
+            <input type="hidden" name="CHECKSUMHASH" id="CHECKSUMHASH" value="#{UsersBean.paytmmap.get('checkSum')}" ></input>
+            <input style="visibility: hidden" type="submit" value="submit"></input>
+        </form>
+    </h:body>
+</html> 
+

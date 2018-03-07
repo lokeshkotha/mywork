@@ -1,0 +1,66 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+        <title>VIB eMoney</title>
+    </h:head>
+    <h:body>
+        <style type="text/css">
+            .mine {
+                margin: auto;
+                position: absolute;
+                top: 35%;
+                width: 100%;
+                text-align: center;
+            }
+            .loader {
+                border: 16px solid #f3f3f3;
+                border-radius: 50%;
+                border-top: 16px solid #3498db;
+                width: 120px;
+                height: 120px;
+                -webkit-animation: spin 2s linear infinite;
+                animation: spin 2s linear infinite;
+                margin: auto;
+            }
+
+            @-webkit-keyframes spin {
+                0% { -webkit-transform: rotate(0deg); }
+                100% { -webkit-transform: rotate(360deg); }
+            }
+
+            @keyframes spin {
+                0% { transform: rotate(0deg); }
+                100% { transform: rotate(360deg); }
+            }
+        </style>
+        <div class="container container-table">
+            <div class="mine">
+                <div class="loader"></div>
+                <div style="padding: 6px;color: rgb(52,152,219)"><b>Loading Please Wait...</b></div>
+            </div>
+        </div>
+        <script type="text/javascript">
+            window.onload = function() {
+                document.forms['payuform'].submit();
+            };
+        </script> 
+        <form id="payuform" action="#{UsersBean.payumap.get('action')}" method="post" name="payuform" >
+            <input type="hidden"></input>
+            <input type="hidden" name="key" id="key" value="#{UsersBean.payumap.get('key')}"></input>
+            <input type="hidden" name="hash" id="hash" value="#{UsersBean.payumap.get('hash')}" ></input>
+            <input type="hidden" name="txnid" id="txnid" value="#{UsersBean.payumap.get('txnid')}" ></input>
+            <input type="hidden" name="amount" id="amount" value="#{UsersBean.payumap.get('amount')}" ></input>
+            <input type="hidden" name="firstname" id="firstname" value="#{UsersBean.payumap.get('firstname')}" ></input>
+            <input type="hidden" name="email" id="email" value="#{UsersBean.payumap.get('email')}" ></input>
+            <input type="hidden" name="phone" id="phone" value="#{UsersBean.payumap.get('phone')}" ></input>
+            <input type="hidden" name="productinfo" id="productinfo" value="#{UsersBean.payumap.get('productinfo')}" ></input>
+            <input type="hidden" name="surl" id="surl" value="#{UsersBean.payumap.get('surl')}" ></input>
+            <input type="hidden" name="furl" id="furl" value="#{UsersBean.payumap.get('furl')}" ></input>
+            <input type="hidden" name="service_provider" id="service_provider" value="#{UsersBean.payumap.get('service_provider')}" ></input>
+            <input style="visibility: hidden" type="submit" value="submit"></input>
+        </form>
+    </h:body>
+</html> 
+

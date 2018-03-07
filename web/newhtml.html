@@ -1,0 +1,1019 @@
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib prefix="s" uri="/struts-tags" %>
+<!DOCTYPE html>
+<html>
+    <head>
+        <style type="text/css">
+            p{
+                text-align: justify;
+            }
+            .row_spacer{
+                padding-top: 19px !important;
+                padding-bottom: 7px !important;
+            }
+            .nopadding1{
+                padding-left: 0px !important;
+                padding-right: 0px !important;
+            }        
+            .boxstyle{
+                padding:2px;
+                box-shadow: 0px 0px 5px 0px #888888;
+                height: 254px !important;
+                background-color: #fff;
+            }
+            .enar_occ_title{
+                text-transform: none !important;
+            }
+            .tabs2 .tabs-navi a.selected{
+                background-color: #2D727C !important;
+                color:#fff !important;
+            }
+            hr{
+                margin-top: 0px !important;
+                margin-bottom: 4px !important;
+                width:90% !important;               
+            }
+            .carousel-indicators{
+                bottom:0px !important;
+            }
+            .list-menu2{
+                color:#333 !important;
+            }
+            #navigation_bar{
+                border-bottom: 0px !important;
+            }
+            .tabs2 .tabs-navi a.selected > span i{
+                color:#fff !important;
+            }
+            ul.list1 li{
+                width: 67% !important;
+            }
+            .acc_content{
+                line-height: 0px !important;
+                padding: 17px 25px 0px !important;
+                min-height: 129px !important;
+            }
+            .accord{
+                float: right;
+                margin-top: -22px;
+                padding-left: 70px
+            }
+            .hm-tabs:not(.simple_tabs) .tabs-body > li{
+                padding: 20px 25px 16px !important;
+            }           
+            #navy li{
+                z-index: 1;
+                background: #fff;                
+                left: 0;
+                position: absolute;                
+            }
+            #navy ul li a{
+                border-bottom: 1px solid #e2e2e2 !important;
+            }
+        </style>
+         <jsp:include page="/include/headercss.jsp"/>
+    </head>
+    <body class="dark_sup_menu light_header preloader1">
+        <div id="preloader">
+            <div class="spinner">
+                <div class="sk-dot1"></div><div class="sk-dot2"></div>
+                <div class="rect3"></div><div class="rect4"></div>
+                <div class="rect5"></div>
+            </div>
+        </div>
+        <%--<jsp:include page="include/header.jsp"/>--%>
+        <div id="main_wrapper">
+            <section class="content_section" style="background: #fff;">
+                <div class="container" style="padding-left: 0px !important;padding-right: 0px !important;" >   
+                    <div id="myCarousel" class="carousel slide">
+                        <!-- Indicators -->
+                        <ol class="carousel-indicators hidden-xs" id="sliderimagesindicator">
+                            <!--slider indicator will populate here-->
+                        </ol>
+                        <!-- Wrapper for slides -->
+                        <div class="carousel-inner" id="sliderimages">
+                            <!--slider will populate here-->
+                        </div>
+                        <!-- Left and right controls -->
+                        <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+                            <span class="glyphicon glyphicon-chevron-left"></span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="right carousel-control" href="#myCarousel" data-slide="next">
+                            <span class="glyphicon glyphicon-chevron-right"></span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </div>
+                </div>
+                <!--                <div class="flex_in_flex flexslider">     .product_option_item{
+                width:100% !important;
+            }   .flex_in_flex.flexslider{
+                background: none !important;
+                padding:0px !important;
+            }
+                                    <div class="product_options clearfix">
+                                        <div class="container hidden-xs" style="margin-top: 300px">
+                                            <div class="col-md-3 col-xs-12 col-sm-6 nopadding">
+                                                <div class="product_option_item">
+                                                    <span class="option_name">Size</span>
+                                                    <label class="orderby_label product_option_con" style="z-index:1000">
+                                                        <select class="orderby"  name="option_size">
+                                                            <option value="">Choose Your Size...</option>
+                                                            <option value="l" class="active">L</option>
+                                                            <option value="m" selected="selected" class="active">M</option>
+                                                            <option value="s" class="active">S</option>
+                                                            <option value="xl" class="active">XL</option>
+                                                            <option value="xs" class="active">XS</option>
+                                                        </select>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-5 col-xs-12 col-sm-5 nopadding">
+                                                <div class="product_option_item">
+                
+                                                    <label class="orderby_label product_option_con" style="z-index: 1000">
+                                                        <select class="orderby" name="option_color">
+                                                            <option value="">Search for movers....</option>
+                                                            <option value="bluecolor" class="active">Blue</option>
+                                                            <option value="greencolor" class="active">Green</option>
+                                                            <option value="greencolor" class="active">Yellow</option>
+                                                        </select>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-2 nopadding" style="margin-top: 15px">
+                                                <button type="submit" class="send_button full_button" name="contact-us-submit" id="contact-us-submit" value="submit">                                    
+                                                    <span> Search</span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                        <div class="container visible-xs visible-sm" >
+                                            <div class="col-md-3 col-xs-12 col-sm-6 nopadding">
+                                                <div class="product_option_item">
+                                                    <span class="option_name">Size</span>
+                                                    <label class="orderby_label product_option_con" style="z-index:1000">
+                                                        <select class="orderby"  name="option_size">
+                                                            <option value="">Choose Your Size...</option>
+                                                            <option value="l" class="active">L</option>
+                                                            <option value="m" selected="selected" class="active">M</option>
+                                                            <option value="s" class="active">S</option>
+                                                            <option value="xl" class="active">XL</option>
+                                                            <option value="xs" class="active">XS</option>
+                                                        </select>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-5 col-xs-12 col-sm-5 nopadding">
+                                                <div class="product_option_item">
+                
+                                                    <label class="orderby_label product_option_con" style="z-index: 1000">
+                                                        <select class="orderby" name="option_color">
+                                                            <option value="">Search for movers....</option>
+                                                            <option value="bluecolor" class="active">Blue</option>
+                                                            <option value="greencolor" class="active">Green</option>
+                                                            <option value="greencolor" class="active">Yellow</option>
+                                                        </select>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-2 nopadding" style="margin-top: 15px">
+                                                <button type="submit" class="send_button full_button" name="contact-us-submit" id="contact-us-submit" value="submit">                                    
+                                                    <span> Search</span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>-->
+            </section>
+            <section class="content_section" style="padding-top: 25px;">                 
+                <div class="container">  
+                    <s:iterator value="articlesList" var="articles" >
+                        <s:if test="#articles.position==1">
+                            <div class="col-md-3 service_box_con" style="padding-top: 10px">
+                                <a href="${pageContext.request.contextPath}/hot-topics/<s:property value="#articles.articleUrl.trim().toLowerCase().replaceAll('[^a-zA-Z0-9 ]', '').replaceAll(' ', '-')"></s:property>-mf<s:property value="#articles.articleId"></s:property>">
+                                        <div class="boxstyle">
+                                                <img class="imghover" src="<s:property value="#articles.smallImageURL"/>" />                                        
+                                        <p style="padding-top: 12px;" class="pstyle"><s:property value="#articles.title"/></p>
+                                    </div>
+                                </a>
+                            </div> 
+                        </s:if>
+                        <s:if test="#articles.position==2">
+                            <div class="col-md-3 service_box_con " style="padding-top: 10px">
+                                <a href="${pageContext.request.contextPath}/hot-topics/<s:property value="#articles.title.trim().toLowerCase().replaceAll('[^a-zA-Z0-9 ]', '').replaceAll(' ', '-')"></s:property>-mf<s:property value="#articles.articleId"></s:property>">
+                                        <div class="boxstyle">
+                                                <img class="imghover" src="<s:property value="#articles.smallImageURL"/>" />
+                                        <p style="padding-top: 12px" class="pstyle"><s:property value="#articles.title"/></p>
+                                    </div>
+                                </a>
+                            </div>
+                        </s:if>
+                        <s:if test="#articles.position==3">
+                            <div class="col-md-3 service_box_con" style="padding-top: 10px">
+                                <a href="${pageContext.request.contextPath}/hot-topics/<s:property value="#articles.title.trim().toLowerCase().replaceAll('[^a-zA-Z0-9 ]', '').replaceAll(' ', '-')"></s:property>-mf<s:property value="#articles.articleId"></s:property>">
+                                        <div class="boxstyle">
+                                                <img class="imghover" src="<s:property value="#articles.smallImageURL"/>" />
+                                        <p style="padding-top: 12px;" class="pstyle"><s:property value="#articles.title"/></p>
+                                    </div>
+                                </a>
+                            </div>
+                        </s:if>
+                        <s:if test="#articles.position==4">
+                            <div class="col-md-3 service_box_con" style="padding-top: 10px">
+                                <a href="${pageContext.request.contextPath}/hot-topics/<s:property value="#articles.title.trim().toLowerCase().replaceAll('[^a-zA-Z0-9 ]', '').replaceAll(' ', '-')"></s:property>-mf<s:property value="#articles.articleId"></s:property>">
+                                        <div class="boxstyle">
+                                                <img class="imghover" src="<s:property value="#articles.smallImageURL"/>" />                                
+                                        <p style="padding-top: 12px" class="pstyle"><s:property value="#articles.title"/></p>
+                                    </div>
+                                </a>
+                            </div>
+                        </s:if>
+                    </s:iterator>
+                </div><br/>
+            </section>
+            <!-- Tabs 1 -->
+            <section class="content_section bg_gray border_t_n" style="background-color: #fff">
+                <div class="content row_spacer">
+                    <div class="main_title centered upper">
+                        <h2><span class="line"><span class="dot"></span></span>Why Choose Us?</h2>
+                    </div>
+                    <div class="hm-tabs tabs2 upper_title">
+                        <nav class="clearfix">
+                            <ul class="tabs-navi">
+                                <li><a data-content="aboutus" class="selected" href="#"><span><i class="ico-user2"></i></span><b>About Us</b></a></li>
+                                <li><a data-content="vision" href="#"><span><i class="ico-star3"></i></span><b>Vision</b></a></li>
+                                <li><a data-content="mission" href="#"><span><i class="ico-heart6 "></i></span><b>Mission</b></a></li>
+                            </ul> 
+                        </nav>
+                        <ul class="tabs-body">
+                            <li data-content="aboutus" class="selected clearfix">
+                                <div class="tab_img" style="padding-top: 15px">
+                                    <a class="magnific-popup img_popup" href="${pageContext.request.contextPath}/images/about-us.jpg">
+                                        <span><i class="ico-maximize"></i></span>
+                                        <img class="popup_img" src="${pageContext.request.contextPath}/images/about-us.jpg" alt="vission">
+                                    </a>
+                                </div>
+                                <p style="margin-bottom: 17px !important;">Movers Folder is a platform which offers the free quotes to the people who seek for moving and storage services. We understand that providing the moving quotes isn’t a cakewalk. It’s possible for the Movers Folder only because of years of experience in the moving industry with an efficient team which is capable of presenting an affordable quote with a vigilant observation on the growing market demands.</p>
+                                <p style="margin-bottom: 17px !important;">We provide easy-to-use tools for our customers to book for local, long distance, auto, and international moving services. Additionally, our moving information articles are specially outlined to help the customers with a seamless moving experience. </p>
+                                <p style="margin-bottom: 17px !important;">Here at Movers Folder, we assure our customers for protecting your privacy. The information you submit to us will be only used to provide the moving quotes. &nbsp;<a href="${pageContext.request.contextPath}/aboutus-31" style="font-weight: bold">Read More...</a> </p>
+                            </li>
+                            <li data-content="vision" class="clearfix">
+                                <div class="tab_img" style="padding-top: 15px">
+                                    <a class="magnific-popup img_popup" href="${pageContext.request.contextPath}/images/our-vision.jpg">
+                                        <span><i class="ico-maximize"></i></span>
+                                        <img class="popup_img" src="${pageContext.request.contextPath}/images/our-vision.jpg" alt="vission">
+                                    </a>
+                                </div>
+                                <p>We at Movers Folder desire to stretch our reach widely by offering a one-stop solution to all the moving demands. To achieve such vision, we are equipped with an efficient team to deliver the best to the customers. And while channelizing our moving strategies, we create an orbit with the following goals.</p>
+                                <ul class="list1 black list_circle clearfix">
+                                    <li>Top quality customer service and Customer happiness with a tailor-made plan.</li>
+                                    <li>Responsible to cater certified movers and Never-ending enhancement of services.</li>
+                                    <li>Dedicated to provide a prompt and Efficient quotes with the best prices.</li>
+                                    <li>Expansion of our network with movers and storage companies to provide varied options in the all the states.</li>
+                                </ul>
+                            </li>
+                            <li data-content="mission">
+                                <div class="tab_img" style="padding-top: 15px">
+                                    <a class="magnific-popup img_popup" href="${pageContext.request.contextPath}/images/mission.jpg" style="width: 110% !important;height: auto">
+                                        <span><i class="ico-maximize"></i></span>
+                                        <img class="popup_img" src="${pageContext.request.contextPath}/images/mission.jpg" alt="vission">
+                                    </a>
+                                </div>
+                                <p>
+                                    Movers Folder thrive to provide a high quality solutions with the best priced quotes for every moving demand. To achieve such mission, the role of team spirit and a sense of ownership echo in the quality of organizational results. Fortunately, we have a team who respect the values of our company to assist our customers in a best possible way.
+                                </p>
+                                <ul class="list1 black list_circle clearfix">
+                                    <li style="width:65%">Our mission is to deliver an eminent solution for all the moving and storage demands to get the customers for a lifetime.</li>
+                                    <li style="width:65%">Our mission is to provide best priced moving and storage quotes through our extensive network of movers.</li>
+                                    <!--<li style="width:65%">Our mission is to work tirelessly to match the expectations of our customers.</li>-->
+                                    <li style="width:65%">Our mission is to stay loyal to our customers and committed to our agents while operating the business within the law.</li>
+                                </ul>
+                            </li>
+                        </ul>                        
+                    </div>                     
+                </div>
+            </section>
+        </div>                           
+    </div>
+</div>                    
+</div>
+</section>
+<section class="content_section" style="background: #F9FAFC">                 
+    <div class="container">
+        <h3>House & Apartment Moving <i class="ico-angle-right" aria-hidden="true" style="color:#333333;"></i><i class="ico-angle-right" aria-hidden="true" style="color:#333333;"></i></h3>
+                <s:iterator value="articlesList" var="articles">
+                    <s:if test="#articles.position==5" >
+                <div class="col-md-3 service_box_con " style="padding-top: 10px">
+                    <a href="${pageContext.request.contextPath}/residential-movers/<s:property value="#articles.title.trim().toLowerCase().replaceAll('[^a-zA-Z0-9 ]', '').replaceAll(' ', '-')"></s:property>-mf<s:property value="#articles.articleId"></s:property>">
+                            <div class="boxstyle">
+                                    <img class="imghover" src="<s:property value="#articles.smallImageURL"/>" />
+                            <p style="padding-top: 12px;" class="pstyle"><s:property value="#articles.title"/></p>
+                        </div>
+                    </a>
+                </div>
+            </s:if>
+            <s:if test="#articles.position==6">
+                <div class="col-md-3 service_box_con" style="padding-top: 10px">  
+                    <div class="boxstyle">
+                        <div class="row" style="width:100%;">
+                            <a href="${pageContext.request.contextPath}/residential-movers/<s:property value="#articles.title.trim().toLowerCase().replaceAll('[^a-zA-Z0-9 ]', '').replaceAll(' ', '-')"></s:property>-mf<s:property value="#articles.articleId"></s:property>">
+                                    <div class="col-md-6 col-xs-6">
+                                            <img class="imghover" src="<s:property value="#articles.smallImageURL"/>" />
+                                </div>
+                            </a>
+                            <div class="col-md-6 col-xs-6 nopadding1">
+                                <a href="${pageContext.request.contextPath}/residential-movers/<s:property value="#articles.title.trim().toLowerCase().replaceAll('[^a-zA-Z0-9 ]', '').replaceAll(' ', '-')"></s:property>-mf<s:property value="#articles.articleId"></s:property>">
+                                    <p class="pstyle" style="font-size: 13px"><s:property value="#articles.title"/></p>
+                                </a> 
+                            </div>
+                        </div><hr>
+                    </s:if>
+                    <s:if test="#articles.position==7">
+                        <div class="row" style="width:100%;">
+                            <a href="${pageContext.request.contextPath}/residential-movers/<s:property value="#articles.title.trim().toLowerCase().replaceAll('[^a-zA-Z0-9 ]', '').replaceAll(' ', '-')"></s:property>-mf<s:property value="#articles.articleId"></s:property>">
+                                    <div class="col-md-6 col-xs-6">
+                                            <img class="imghover" src="<s:property value="#articles.smallImageURL"/>" />
+                                </div></a>
+                            <div class="col-md-6 col-xs-6 nopadding1">
+                                <a href="${pageContext.request.contextPath}/residential-movers/<s:property value="#articles.title.trim().toLowerCase().replaceAll('[^a-zA-Z0-9 ]', '').replaceAll(' ', '-')"></s:property>-mf<s:property value="#articles.articleId"></s:property>">
+                                    <p class="pstyle" style="font-size: 13px"><s:property value="#articles.title"/></p>
+                                </a>
+                            </div>
+                        </div><hr>
+                    </s:if>
+                    <s:if test="#articles.position==8">
+                        <div class="row" style="width:100%;">
+                            <a href="${pageContext.request.contextPath}/residential-movers/<s:property value="#articles.title.trim().toLowerCase().replaceAll('[^a-zA-Z0-9 ]', '').replaceAll(' ', '-')"></s:property>-mf<s:property value="#articles.articleId"></s:property>">
+                                    <div class="col-md-6 col-xs-6">
+                                            <img class="imghover" src="<s:property value="#articles.smallImageURL"/>" />
+                                </div>
+                            </a>
+                            <div class="col-md-6 col-xs-6 nopadding1">
+                                <a href="${pageContext.request.contextPath}/residential-movers/<s:property value="#articles.title.trim().toLowerCase().replaceAll('[^a-zA-Z0-9 ]', '').replaceAll(' ', '-')"></s:property>-mf<s:property value="#articles.articleId"></s:property>">
+                                    <p class="pstyle" style="font-size: 13px"><s:property value="#articles.title"/></p>
+                                </a>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </s:if>
+            <s:if test="#articles.position==9">
+                <div class="col-md-3 service_box_con " style="padding-top: 10px">
+                    <a href="${pageContext.request.contextPath}/residential-movers/<s:property value="#articles.title.trim().toLowerCase().replaceAll('[^a-zA-Z0-9 ]', '').replaceAll(' ', '-')"></s:property>-mf<s:property value="#articles.articleId"></s:property>">
+                            <div class="boxstyle">
+                                    <img class="imghover" src="<s:property value="#articles.smallImageURL"/>" />
+                            <p style="padding-top: 12px" class="pstyle"><s:property value="#articles.title"/></p>
+                        </div>
+                    </a>
+                </div>
+            </s:if>
+            <s:if test="#articles.position==10">
+                <div class="col-md-3 service_box_con" style="padding-top: 10px">
+                    <a href="${pageContext.request.contextPath}/residential-movers/<s:property value="#articles.title.trim().toLowerCase().replaceAll('[^a-zA-Z0-9 ]', '').replaceAll(' ', '-')"></s:property>-mf<s:property value="#articles.articleId"></s:property>">
+                            <div class="boxstyle">
+                                    <img class="imghover" src="<s:property value="#articles.smallImageURL"/>" />
+                            <p style="padding-top: 12px" class="pstyle"><s:property value="#articles.title"/></p>
+                        </div>
+                    </a>
+                </div>
+            </s:if>
+        </s:iterator>
+    </div><br/>
+</section>
+<section class="content_section" >                 
+    <div class="container">
+        <h3>Office Relocation Services <i class="ico-angle-right" aria-hidden="true" style="color:#333333;"></i><i class="ico-angle-right" aria-hidden="true" style="color:#333333;"></i></h3>
+                <s:iterator value="articlesList" var="articles">
+                    <s:if test="#articles.position==11">
+                <div class="col-md-3 service_box_con a" style="padding-top: 10px">
+                    <a href="${pageContext.request.contextPath}/office-movers/<s:property value="#articles.title.trim().toLowerCase().replaceAll('[^a-zA-Z0-9 ]', '').replaceAll(' ', '-')"></s:property>-mf<s:property value="#articles.articleId"></s:property>">
+                            <div class="boxstyle">
+                                    <img class="imghover" src="<s:property value="#articles.smallImageURL"/>" />
+                            <p style="padding-top: 12px" class="pstyle"><s:property value="#articles.title"/></p>
+                        </div>
+                    </a>
+                </div>
+            </s:if>
+            <s:if test="#articles.position==12">
+                <div class="col-md-3 service_box_con b" style="padding-top: 10px">
+                    <a href="${pageContext.request.contextPath}/office-movers/<s:property value="#articles.title.trim().toLowerCase().replaceAll('[^a-zA-Z0-9 ]', '').replaceAll(' ', '-')"></s:property>-mf<s:property value="#articles.articleId"></s:property>">                        
+                            <div class="boxstyle">
+                                    <img class="imghover" src="<s:property value="#articles.smallImageURL"/>" />
+                            <p style="padding-top: 12px" class="pstyle"><s:property value="#articles.title"/></p>
+                        </div>
+                    </a>
+                </div>
+            </s:if>
+            <s:if test="#articles.position==13" >
+                <div class="col-md-3 service_box_con c" style="padding-top: 10px">
+                    <div class="boxstyle">
+                        <div class="row" style="width:100%;">
+                            <a href="${pageContext.request.contextPath}/office-movers/<s:property value="#articles.title.trim().toLowerCase().replaceAll('[^a-zA-Z0-9 ]', '').replaceAll(' ', '-')"></s:property>-mf<s:property value="#articles.articleId"></s:property>">
+                                    <div class="col-md-6 col-xs-6">
+                                            <img class="imghover" src="<s:property value="#articles.smallImageURL"/>" />
+                                </div> </a>
+                            <div class="col-md-6 col-xs-6 nopadding1">
+                                <a href="${pageContext.request.contextPath}/office-movers/<s:property value="#articles.title.trim().toLowerCase().replaceAll('[^a-zA-Z0-9 ]', '').replaceAll(' ', '-')"></s:property>-mf<s:property value="#articles.articleId"></s:property>">   
+                                    <p class="pstyle" style="font-size: 13px"><s:property value="#articles.title"/></p>
+                                </a>
+                            </div>
+                        </div>
+                        <hr>
+                    </s:if>
+                    <s:if test="#articles.position==14">
+                        <div class="row" style="width:100%;">
+                            <a href="${pageContext.request.contextPath}/office-movers/<s:property value="#articles.title.trim().toLowerCase().replaceAll('[^a-zA-Z0-9 ]', '').replaceAll(' ', '-')"></s:property>-mf<s:property value="#articles.articleId"></s:property>">
+                                    <div class="col-md-6 col-xs-6">
+                                            <img class="imghover" src="<s:property value="#articles.smallImageURL"/>" />
+                                </div> </a>
+                            <div class="col-md-6 col-xs-6 nopadding1">
+                                <a href="${pageContext.request.contextPath}/office-movers/<s:property value="#articles.title.trim().toLowerCase().replaceAll('[^a-zA-Z0-9 ]', '').replaceAll(' ', '-')"></s:property>-mf<s:property value="#articles.articleId"></s:property>">
+                                    <p class="pstyle" style="font-size: 13px"><s:property value="#articles.title"/></p>
+                                </a>
+                            </div>
+                        </div>
+                        <hr>
+                    </s:if>
+                    <s:if test="#articles.position==15">
+                        <div class="row" style="width:100%;">
+                            <a href="${pageContext.request.contextPath}/office-movers/<s:property value="#articles.title.trim().toLowerCase().replaceAll('[^a-zA-Z0-9 ]', '').replaceAll(' ', '-')"></s:property>-mf<s:property value="#articles.articleId"></s:property>">
+                                    <div class="col-md-6 col-xs-6">
+                                            <img class="imghover" src="<s:property value="#articles.smallImageURL"/>" />
+                                </div>
+                            </a>
+                            <div class="col-md-6 col-xs-6 nopadding1">
+                                <a href="${pageContext.request.contextPath}/office-movers/<s:property value="#articles.title.trim().toLowerCase().replaceAll('[^a-zA-Z0-9 ]', '').replaceAll(' ', '-')"></s:property>-mf<s:property value="#articles.articleId"></s:property>">
+                                    <p class="pstyle" style="font-size: 13px"><s:property value="#articles.title"/></p>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </s:if>
+            <s:if test="#articles.position==16">
+                <div class="col-md-3 service_box_con d" style="padding-top: 10px">
+                    <a href="${pageContext.request.contextPath}/office-movers/<s:property value="#articles.title.trim().toLowerCase().replaceAll('[^a-zA-Z0-9 ]', '').replaceAll(' ', '-')"></s:property>-mf<s:property value="#articles.articleId"></s:property>">
+                            <div class="boxstyle">
+                                    <img class="imghover" src="<s:property value="#articles.smallImageURL"/>" />
+                            <p style="padding-top: 12px" class="pstyle"><s:property value="#articles.title"/></p>
+                        </div>
+                    </a>
+                </div>
+            </s:if>
+        </s:iterator>
+    </div><br/>
+</section>
+<section class="content_section bg_gray" >                 
+    <div class="container" >
+        <h3>Auto Transport Services <i class="ico-angle-right" aria-hidden="true" style="color:#333333;"></i><i class="ico-angle-right" aria-hidden="true" style="color:#333333;"></i></h3>
+                <s:iterator value="articlesList" var="articles">
+                    <s:if test="#articles.position==17">
+                <div class="col-md-3 service_box_con" style="padding-top: 10px">
+                    <a href="${pageContext.request.contextPath}/auto-shippers/<s:property value="#articles.title.trim().toLowerCase().replaceAll('[^a-zA-Z0-9 ]', '').replaceAll(' ', '-')"></s:property>-mf<s:property value="#articles.articleId"></s:property>">
+                            <div class="boxstyle">
+                                    <img class="imghover" src="<s:property value="#articles.smallImageURL"/>" />
+                            <p style="padding-top: 12px" class="pstyle"><s:property value="#articles.title"/></p>
+                        </div>
+                    </a>
+                </div>
+            </s:if>
+            <s:if test="#articles.position==18">
+                <div class="col-md-3 service_box_con" style="padding-top: 10px">
+                    <div class="boxstyle">
+                        <div class="row" style="width:100%;">
+                            <a href="${pageContext.request.contextPath}/auto-shippers/<s:property value="#articles.title.trim().toLowerCase().replaceAll('[^a-zA-Z0-9 ]', '').replaceAll(' ', '-')"></s:property>-mf<s:property value="#articles.articleId"></s:property>">
+                                    <div class="col-md-6 col-xs-6">
+                                            <img class="imghover" src="<s:property value="#articles.smallImageURL"/>" />
+                                </div></a>
+                            <div class="col-md-6 col-xs-6 nopadding1">
+                                <a href="${pageContext.request.contextPath}/auto-shippers/<s:property value="#articles.title.trim().toLowerCase().replaceAll('[^a-zA-Z0-9 ]', '').replaceAll(' ', '-')"></s:property>-mf<s:property value="#articles.articleId"></s:property>">  
+                                    <p class="pstyle" style="font-size: 13px"><s:property value="#articles.title"/></p>
+                                </a>
+                            </div>
+                        </div><hr>
+                    </s:if>
+                    <s:if test="#articles.position==19">
+                        <div class="row" style="width:100%;">
+                            <a href="${pageContext.request.contextPath}/auto-shippers/<s:property value="#articles.title.trim().toLowerCase().replaceAll('[^a-zA-Z0-9 ]', '').replaceAll(' ', '-')"></s:property>-mf<s:property value="#articles.articleId"></s:property>">
+                                    <div class="col-md-6 col-xs-6">
+                                            <img class="imghover" src="<s:property value="#articles.smallImageURL"/>" />
+                                </div> </a>
+                            <div class="col-md-6 col-xs-6 nopadding1">
+                                <a href="${pageContext.request.contextPath}/auto-shippers/<s:property value="#articles.title.trim().toLowerCase().replaceAll('[^a-zA-Z0-9 ]', '').replaceAll(' ', '-')"></s:property>-mf<s:property value="#articles.articleId"></s:property>">
+                                    <p class="pstyle" style="font-size: 13px"><s:property value="#articles.title"/></p>
+                                </a>
+                            </div>
+
+                        </div><hr>
+                    </s:if>
+                    <s:if test="#articles.position==20">
+                        <div class="row" style="width:100%;">
+                            <a href="${pageContext.request.contextPath}/auto-shippers/<s:property value="#articles.title.trim().toLowerCase().replaceAll('[^a-zA-Z0-9 ]', '').replaceAll(' ', '-')"></s:property>-mf<s:property value="#articles.articleId"></s:property>">
+                                    <div class="col-md-6 col-xs-6">
+                                            <img class="imghover" src="<s:property value="#articles.smallImageURL"/>" />
+                                </div></a>
+                            <div class="col-md-6 col-xs-6 nopadding1">
+                                <a href="${pageContext.request.contextPath}/auto-shippers/<s:property value="#articles.title.trim().toLowerCase().replaceAll('[^a-zA-Z0-9 ]', '').replaceAll(' ', '-')"></s:property>-mf<s:property value="#articles.articleId"></s:property>">
+                                    <p class="pstyle" style="font-size: 13px"><s:property value="#articles.title"/></p>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </s:if>
+            <s:if test="#articles.position==21">
+                <div class="col-md-3 service_box_con" style="padding-top: 10px">
+                    <a href="${pageContext.request.contextPath}/auto-shippers/<s:property value="#articles.title.trim().toLowerCase().replaceAll('[^a-zA-Z0-9 ]', '').replaceAll(' ', '-')"></s:property>-mf<s:property value="#articles.articleId"></s:property>">
+                            <div class="boxstyle">
+                                    <img class="imghover" src="<s:property value="#articles.smallImageURL"/>" />
+                            <p style="padding-top: 12px" class="pstyle"><s:property value="#articles.title"/></p>
+                        </div></a>
+                </div>
+            </s:if>
+            <s:if test="#articles.position==22">
+                <div class="col-md-3 service_box_con" style="padding-top: 10px">
+                    <a href="${pageContext.request.contextPath}/auto-shippers/<s:property value="#articles.title.trim().toLowerCase().replaceAll('[^a-zA-Z0-9 ]', '').replaceAll(' ', '-')"></s:property>-mf<s:property value="#articles.articleId"></s:property>">
+                            <div class="boxstyle">
+                                    <img class="imghover" src="<s:property value="#articles.smallImageURL"/>" />
+                            <p style="padding-top: 12px" class="pstyle"><s:property value="#articles.title"/></p>
+                        </div>
+                    </a>
+                </div>
+            </s:if>
+        </s:iterator>
+    </div><br/>
+</section>
+<section class="content_section" >                 
+    <div class="container">
+        <h3>Self Storage & Special Moving Services <i class="ico-angle-right" aria-hidden="true" style="color:#333333;"></i><i class="ico-angle-right" aria-hidden="true" style="color:#333333;"></i></h3>
+                <s:iterator value="articlesList" var="articles">
+                    <s:if test="#articles.position==23">
+                <div class="col-md-3 service_box_con" style="padding-top: 10px" >
+                    <a href="${pageContext.request.contextPath}/self-storage/<s:property value="#articles.title.trim().toLowerCase().replaceAll('[^a-zA-Z0-9 ]', '').replaceAll(' ', '-')"></s:property>-mf<s:property value="#articles.articleId"></s:property>">
+                            <div class="boxstyle">
+                                    <img class="imghover" src="<s:property value="#articles.smallImageURL"/>" />
+                            <p style="padding-top: 12px" class="pstyle"><s:property value="#articles.title"/></p>
+                        </div>
+                    </a>
+                </div>
+            </s:if>
+            <s:if test="#articles.position==24">
+                <div class="col-md-3 service_box_con" style="padding-top: 10px">
+                    <div class="boxstyle">
+                        <div class="row" style="width:100%;">
+                            <a href="${pageContext.request.contextPath}/self-storage/<s:property value="#articles.title.trim().toLowerCase().replaceAll('[^a-zA-Z0-9 ]', '').replaceAll(' ', '-')"></s:property>-mf<s:property value="#articles.articleId"></s:property>">
+                                    <div class="col-md-6 col-xs-6 ">
+                                            <img class="imghover" src="<s:property value="#articles.smallImageURL"/>" />
+                                </div>
+                            </a>
+                            <div class="col-md-6 col-xs-6 nopadding1">
+                                <a href="${pageContext.request.contextPath}/self-storage/<s:property value="#articles.title.trim().toLowerCase().replaceAll('[^a-zA-Z0-9 ]', '').replaceAll(' ', '-')"></s:property>-mf<s:property value="#articles.articleId"></s:property>">   
+                                    <p class="pstyle" style="font-size: 13px"><s:property value="#articles.title"/></p>
+                                </a>
+                            </div>
+                        </div><hr>
+                    </s:if>
+                    <s:if test="#articles.position==25">
+                        <div class="row" style="width:100%;">
+                            <a href="${pageContext.request.contextPath}/self-storage/<s:property value="#articles.title.trim().toLowerCase().replaceAll('[^a-zA-Z0-9 ]', '').replaceAll(' ', '-')"></s:property>-mf<s:property value="#articles.articleId"></s:property>">
+                                    <div class="col-md-6 col-xs-6">
+                                            <img class="imghover" src="<s:property value="#articles.smallImageURL"/>" />
+                                </div></a>
+                            <div class="col-md-6 col-xs-6 nopadding1">
+                                <a href="${pageContext.request.contextPath}/self-storage/<s:property value="#articles.title.trim().toLowerCase().replaceAll('[^a-zA-Z0-9 ]', '').replaceAll(' ', '-')"></s:property>-mf<s:property value="#articles.articleId"></s:property>">   
+                                    <p class="pstyle" style="font-size: 13px"><s:property value="#articles.title"/></p>
+                                </a>
+                            </div>
+                        </div><hr>
+                    </s:if>
+                    <s:if test="#articles.position==26">
+                        <div class="row" style="width:100%;">
+                            <a href="${pageContext.request.contextPath}/self-storage/<s:property value="#articles.title.trim().toLowerCase().replaceAll('[^a-zA-Z0-9 ]', '').replaceAll(' ', '-')"></s:property>-mf<s:property value="#articles.articleId"></s:property>">
+                                    <div class="col-md-6 col-xs-6">
+                                            <img class="imghover" src="<s:property value="#articles.smallImageURL"/>" />
+                                </div></a>
+                            <div class="col-md-6 col-xs-6 nopadding1">
+                                <a href="${pageContext.request.contextPath}/self-storage/<s:property value="#articles.title.trim().toLowerCase().replaceAll('[^a-zA-Z0-9 ]', '').replaceAll(' ', '-')"></s:property>-mf<s:property value="#articles.articleId"></s:property>">
+                                    <p class="pstyle" style="font-size: 13px"><s:property value="#articles.title"/></p>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </s:if>
+            <s:if test="#articles.position==27">
+                <div class="col-md-3 service_box_con " style="padding-top: 10px">
+                    <a href="${pageContext.request.contextPath}/special-movers/<s:property value="#articles.title.trim().toLowerCase().replaceAll('[^a-zA-Z0-9 ]', '').replaceAll(' ', '-')"></s:property>-mf<s:property value="#articles.articleId"></s:property>">
+                            <div class="boxstyle">
+                                    <img class="imghover" src="<s:property value="#articles.smallImageURL"/>" />
+                            <p style="padding-top: 12px" class="pstyle"><s:property value="#articles.title"/></p>
+                        </div>
+                    </a>
+                </div>
+            </s:if>
+            <s:if test="#articles.position==28">
+                <div class="col-md-3 service_box_con" style="padding-top: 10px">
+                    <div class="boxstyle">
+                        <div class="row" style="width:100%;">
+                            <a href="${pageContext.request.contextPath}/special-movers/<s:property value="#articles.title.trim().toLowerCase().replaceAll('[^a-zA-Z0-9 ]', '').replaceAll(' ', '-')"></s:property>-mf<s:property value="#articles.articleId"></s:property>">
+                                    <div class="col-md-6 col-xs-6">
+                                            <img class="imghover" src="<s:property value="#articles.smallImageURL"/>" />
+                                </div>
+                                <div class="col-md-6 col-xs-6 nopadding1">
+                                    <p class="pstyle" style="font-size: 13px"><s:property value="#articles.title"/></p>
+                                </div>
+                            </a>
+                        </div><hr>
+                    </s:if>
+                    <s:if test="#articles.position==29">
+                        <div class="row" style="width:100%;">
+                            <a href="${pageContext.request.contextPath}/special-movers/<s:property value="#articles.title.trim().toLowerCase().replaceAll('[^a-zA-Z0-9 ]', '').replaceAll(' ', '-')"></s:property>-mf<s:property value="#articles.articleId"></s:property>">
+                                    <div class="col-md-6 col-xs-6">
+                                            <img class="imghover" src="<s:property value="#articles.smallImageURL"/>" />
+                                </div>
+                                <div class="col-md-6 col-xs-6 nopadding1">
+                                    <p class="pstyle" style="font-size: 13px"><s:property value="#articles.title"/></p>
+                                </div>
+                            </a>
+                        </div><hr>
+                    </s:if>
+                    <s:if test="#articles.position==30">
+                        <div class="row" style="width:100%;">
+                            <a href="${pageContext.request.contextPath}/special-movers/<s:property value="#articles.title.trim().toLowerCase().replaceAll('[^a-zA-Z0-9 ]', '').replaceAll(' ', '-')"></s:property>-mf<s:property value="#articles.articleId"></s:property>">
+                                    <div class="col-md-6 col-xs-6">
+                                            <img class="imghover" src="<s:property value="#articles.smallImageURL"/>" />
+                                </div>
+                                <div class="col-md-6 col-xs-6 nopadding1">
+                                    <p class="pstyle" style="font-size: 13px"><s:property value="#articles.title"/></p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </s:if>
+        </s:iterator>
+    </div>
+    <br/>
+</section>
+<section class="content_section bg_gray" >
+    <div class="container row_spacer">
+        <div class="rows_container clearfix">
+            <div class="col-md-5">
+                <div class="main_title upper small">
+                    <h2><span class="line"><span class="dot"></span></span>Expert Tips & Guides for Safe Moving!</h2>
+                </div>
+                <!-- My Accordion -->
+                <div id="recenttipsdiv" class="enar_accordion plus_minus" data-type="accordion" style="text-transform: none !important;height: auto !important;"> <!-- accordion - toggle -->
+                    <!--recent tips will populate here-->                                      
+                </div>
+                <!-- End My Accordion -->
+            </div>
+            <div class="col-md-7">
+                <div class="main_title upper small">
+                    <h2><span class="line"><span class="dot"></span></span> Latest Moving Reviews!</h2>
+                </div>
+                <!-- Tabs Container -->
+                <div class="hm-tabs tabs1" style="background-color: white;border: 1px solid #e5e5e5;">
+                    <section class="content_section">
+                        <div class="content row_spacer clearfix">	
+                            <!-- Content Slider -->
+                            <div class="content_slider" id="reviewscontent">				
+                                <!--reviews will populate here-->
+                            </div>
+                            <!-- End Content Slider -->
+                        </div>
+                        <div class="text-center">
+                            <a class="send_button" href="${pageContext.request.contextPath}/moving-reviews/post-review" style="font-size: 18px;padding:9px 38px;margin-bottom: 12px">                                        
+                                <span><b><i class="ico-write" style="font-size: 21px"></i> <u>Write a Review & Help Others</u></b></span>
+                            </a>
+                        </div>
+                    </section>
+                </div>  
+            </div>  
+        </div>                                              
+    </div>
+    <div class="form_row clearfix">
+        <div id="form-messages"></div>
+    </div>
+    <div class="form_loader"></div>
+    <div class="clear"></div>
+</section> 
+<section class="content_section white_section page_title has_bg_image bg_header4 enar_parallax" style="background-image: url('images/Sign-up-strip1.png');padding:0px 0px !important;width:100% !important;border-bottom: 0px !important;">
+    <div class="content clearfix">
+        <div class="col-md-6 col-md-offset-1">
+            <h1 >Are You A Moving Company ?<br/><span style="font-size: 20px">Join Moversfolder.com And Grow Your Business.</span> </h1>    
+        </div>
+        <div class="col-md-4">
+            <div class="breadcrumbs" style="float: left">
+                <a href="${pageContext.request.contextPath}/advertise-with-us-37">
+                    <button type="button" class="send_button btn-block"  style="font-size: 26px;float: left;padding:12px 14px;background: #fff;color:#085966">                                
+                        <span><b> <i class="ico-user-plus2"></i> <u>Sign Up Today!</u></b></span>
+                    </button>
+                </a> 
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End wrapper -->
+<div class="container-fluid" style="background-color: #f9fafc;color:#333">
+    <h3><u>Moving Companies from Your States</u>:</h3>
+    <div class="col-md-3">
+        <h4 style="background-color: #085966;padding:7px;color:#fff">The North-East</h4>
+        <div class="col-md-6">
+            <ul>
+                <li><a id="59d72f587acaaa7520834f3e" class="state-selection list-menu2" ><b>New York</b></a></li>
+                <li><a id="59d72f577acaaa7520834f24" class="state-selection list-menu2" >Connecticut</a></li>
+                <li><a id="59d72f577acaaa7520834f26" class="state-selection list-menu2" >Delaware</a></li>
+                <li><a id="59d72f587acaaa7520834f33" class="state-selection list-menu2" >Maine</a></li>
+                <li><a id="59d72f587acaaa7520834f3b" class="state-selection list-menu2" >New Hamshire</a></li>
+                <li><a id="59d72f587acaaa7520834f3c" class="state-selection list-menu2" ><b>New Jersey</b></a></li> 
+                <li><a id="59d72f577acaaa7520834f25" class="state-selection list-menu2" >Dist. Of Columbia</a></li>
+            </ul>
+        </div>
+        <div class="col-md-6">
+            <ul>
+                <li><a id="59d72f587acaaa7520834f32" class="state-selection list-menu2" >Maryland</a></li>
+                <li><a id="59d72f587acaaa7520834f31" class="state-selection list-menu2" >Massachusetts</a></li>
+                <li><a id="59d72f587acaaa7520834f44" class="state-selection list-menu2" >Pennsylvenia</a></li>
+                <li><a id="59d72f597acaaa7520834f4e" class="state-selection list-menu2" >Vermont</a></li>
+                <li><a id="59d72f597acaaa7520834f4c" class="state-selection list-menu2" >Virginia</a></li>
+                <li><a id="59d72f597acaaa7520834f50" class="state-selection list-menu2" >West Virginia</a></li>                            
+                <li><a id="59d72f587acaaa7520834f46" class="state-selection list-menu2" >Rhode Island</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <h4 style="background-color: #085966;padding:7px;color:#fff">The Mid-West</h4>
+        <div class="col-md-6">
+            <ul>
+                <li><a id="59d72f577acaaa7520834f2c" class="state-selection list-menu2" ><b>Illinois</b></a></li>
+                <li><a id="59d72f577acaaa7520834f2d" class="state-selection list-menu2" >Indiana</a></li>
+                <li><a id="59d72f577acaaa7520834f2a" class="state-selection list-menu2" >Iowa</a></li>
+                <li><a id="59d72f587acaaa7520834f34" class="state-selection list-menu2" >Michigan</a></li>
+                <li><a id="59d72f587acaaa7520834f36" class="state-selection list-menu2" >Missouri</a></li>
+                <li><a id="59d72f587acaaa7520834f41" class="state-selection list-menu2" ><b>Ohio</b></a></li>
+            </ul>
+        </div>
+        <div class="col-md-6">
+            <ul>                            
+                <li><a id="59d72f577acaaa7520834f2e" class="state-selection list-menu2" >Kansas</a></li>
+                <li><a id="59d72f587acaaa7520834f35" class="state-selection list-menu2" >Minnesota</a></li>
+                <li><a id="59d72f587acaaa7520834f39" class="state-selection list-menu2" >Nebraska</a></li>
+                <li><a id="59d72f587acaaa7520834f40" class="state-selection list-menu2" >North Dakota</a></li>
+                <li><a id="59d72f587acaaa7520834f48" class="state-selection list-menu2" >South Dakota</a></li>
+                <li><a id="59d72f597acaaa7520834f51" class="state-selection list-menu2" >Wisconsin</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <h4 style="background-color: #085966;padding:7px;color:#fff">The South</h4>
+        <div class="col-md-6">
+            <ul>
+                <li><a id="59d72f577acaaa7520834f1f" class="state-selection list-menu2" >Alabama</a></li>
+                <li><a id="59d72f577acaaa7520834f20" class="state-selection list-menu2">Arkansas</a></li>
+                <li><a id="59d72f577acaaa7520834f27" class="state-selection list-menu2"><b>Florida</b></a></li>
+                <li><a id="59d72f577acaaa7520834f28" class="state-selection list-menu2">Georgia</a></li>
+                <li><a id="59d72f577acaaa7520834f2f" class="state-selection list-menu2">Kentucky</a></li>
+                <li><a id="59d72f587acaaa7520834f30" class="state-selection list-menu2">Louisiana</a></li>
+            </ul>
+        </div>
+        <div class="col-md-6">
+            <ul>                            
+                <li><a id="59d72f587acaaa7520834f37" class="state-selection list-menu2" >Mississippi</a></li>
+                <li><a id="59d72f587acaaa7520834f3f" class="state-selection list-menu2" >North Carolina</a></li>
+                <li><a id="59d72f587acaaa7520834f42" class="state-selection list-menu2" >Oklahoma</a></li>
+                <li><a id="59d72f587acaaa7520834f47" class="state-selection list-menu2" >South Carolina</a></li>
+                <li><a id="59d72f587acaaa7520834f49" class="state-selection list-menu2" >Tennessee</a></li>
+                <li><a id="59d72f587acaaa7520834f4a" class="state-selection list-menu2" ><b>Texas</b></a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <h4 style="background-color: #085966;padding:7px;color:#fff">The West</h4>
+        <div class="col-md-6">
+            <ul>
+                <li><a id="59d72f577acaaa7520834f1e" class="state-selection list-menu2" >Alaska</a></li>
+                <li><a id="59d72f577acaaa7520834f22" class="state-selection list-menu2" ><b>California</b></a></li>
+                <li><a id="59d72f577acaaa7520834f29" class="state-selection list-menu2" >Hawaii</a></li>
+                <li><a id="59d72f587acaaa7520834f3a" class="state-selection list-menu2" >Nevada</a></li>
+                <li><a id="59d72f587acaaa7520834f43" class="state-selection list-menu2" >Oregon</a></li>
+                <li><a id="59d72f597acaaa7520834f4f" class="state-selection list-menu2" >Washigton</a></li>
+                <li><a id="59d72f597acaaa7520834f52" class="state-selection list-menu2" >Wyoming</a></li>
+            </ul>
+        </div>
+        <div class="col-md-6">
+            <ul>
+                <li><a id="59d72f577acaaa7520834f21" class="state-selection list-menu2" >Arizona</a></li>
+                <li><a id="59d72f577acaaa7520834f23" class="state-selection list-menu2" >Colorado</a></li>
+                <li><a id="59d72f577acaaa7520834f2b" class="state-selection list-menu2" >Idaho</a></li>
+                <li><a id="59d72f587acaaa7520834f38" class="state-selection list-menu2" >Montana</a></li>
+                <li><a id="59d72f587acaaa7520834f3d" class="state-selection list-menu2" >New Mexico</a></li>
+                <li><a id="59d72f597acaaa7520834f4b" class="state-selection list-menu2" >Utah</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<jsp:include page="include/footer.jsp"/>
+<div class="modal fade in" id="state-select-dialog" role="dialog">
+    <div class="modal-dialog modal-vertical-align-center" style="z-index: 9999">
+        <div class="modal-content ">
+            <div class="modal-body">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <div class="switch-title"><span style="font-size: 20px"> City</span></div>
+                <div class="switch-field">
+                    <select id="city" name="cityId" class="shipping_country">
+                        <option value="">Select City</option>
+                    </select>
+                    <p id="cityiderror" style="margin: 0px" class="error"></p>
+                </div>
+                <div class="switch-title"><span style="font-size: 20px"> Service</span></div>
+                <div class="switch-field">
+                    <input type="radio" id="residentialbtn" name="serviceId" value="594e176bd97a40faf9a9e33a" />
+                    <label for="residentialbtn">Residential Movers</label>
+                    <input type="radio" id="officebtn" name="serviceId" value="594e1779d97a40faf9a9e33b" />
+                    <label for="officebtn">Office Relocation</label>
+                    <input type="radio" id="autobtn" name="serviceId" value="594e178ed97a40faf9a9e33c" />
+                    <label for="autobtn">Auto Transport</label>
+                    <input type="radio" id="specialbtn" name="serviceId" value="594e17b2d97a40faf9a9e33e" />
+                    <label for="specialbtn">Special Movers</label>
+                </div>
+                <p id="serviceiderror" style="margin: 0px" class="error"></p>
+                <div class="switch-title"><span style="font-size: 20px"> Distance</span></div>
+                <div class="switch-field">
+                    <input type="radio" id="localbtn" name="distanceId" value="595782ad138160073242a6c7" />
+                    <label for="localbtn">Local Move</label>
+                    <input type="radio" id="longbtn" name="distanceId" value="595782cb138160073242a6c8" />
+                    <label for="longbtn">Long Distance</label>
+                    <input type="radio" id="intbtn" name="distanceId" value="595782d7138160073242a6c9" />
+                    <label for="intbtn">International</label>
+                    <div>
+                        <button id="search_movers_btn" type="button" class="send_button"  style="font-size: 18px;padding:4px;margin-left: 12px">                                
+                            <span><b>Search</b></span>
+                        </button>
+                    </div>
+                </div>
+                <p id="distanceiderror" style="margin: 0px" class="error"></p>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="${pageContext.request.contextPath}/assets/js/rater.min.js"></script>
+<script>
+    $(function () {
+        sliderImages();
+    });
+    function sliderImages() {
+        $.ajax({
+            type: 'GET',
+            url: "${pageContext.request.contextPath}/allsliderimages",
+            dataType: 'json', //Expected data format from server
+            headers: {'Access-Control-Allow-Origin': '*'},
+            success: function (data, status) {
+                $('#sliderimagesindicator').html('');
+                $('#sliderimages').html('');
+                var content='';
+                var indicatorContent='';
+                $.each(data, function (i, v) {
+                    if (i===0) {
+                        content+="<div class='item active'><img src="+v.sliderUrl+" alt="+v.sliderTitle+" style='width:100%;'></div>";
+                        indicatorContent+="<li data-target='#myCarousel' data-slide-to="+i+"  class='active'></li>";
+                    } else {
+                        content+="<div class='item'><img src="+v.sliderUrl+" alt="+v.sliderTitle+" style='width:100%;'></div>";
+                        indicatorContent+="<li data-target='#myCarousel' data-slide-to="+i+" ></li>";
+                    }
+                });
+                $('#sliderimagesindicator').append(indicatorContent);
+                $('#sliderimages').append(content);
+                $('#myCarousel').carousel();
+                recentTips();
+            }
+        });
+    }
+    function recentReviews() {
+        var jsondata={"chunkSize": 9, "storedChunkSize": 0};
+        $.ajax({
+            type: 'POST',
+            data: JSON.stringify(jsondata),
+            url: "${pageContext.request.contextPath}/moving-reviews/getvendorreviews",
+            contentType: 'application/json',
+            dataType: 'json', //Expected data format from server
+            headers: {'Access-Control-Allow-Origin': '*'},
+            success: function (data, status) {
+                $('#reviewscontent').html('');
+                var content1='';
+                var content2='';
+                var content3='';
+                var finalContent='';
+                $.each(data, function (i, v) {
+                    var reviewStatusContent='', reviewTitle='', fullReview='';
+                    if ($.trim(v.reviewTitle).length>70) {
+                        reviewTitle=$.trim(v.reviewTitle).substring(0, 70)+"..";
+                    } else {
+                        reviewTitle=$.trim(v.reviewTitle);
+                    }
+                    if ($.trim(v.fullReview).length>200) {
+                        fullReview=$.trim(v.fullReview).substring(0, 200)+"<span class='readtotalreview link' id='"+v.id+"'> Read More..</span>";
+                    } else {
+                        fullReview=$.trim(v.fullReview)+"<span class='readtotalreview link' id='"+v.id+"'> Read More..</span>";
+                    }
+                    if (v.complimentOrComplaint) {
+                        reviewStatusContent="<span><p style='float: right;color:#085966'><i class='fa fa-thumbs-up' aria-hidden='true' style='color:blue'></i>&nbsp;&nbsp;";
+                    } else {
+                        reviewStatusContent="<span><p style='float: right;color:#085966'><i class='fa fa-thumbs-down' aria-hidden='true' style='color:red'></i>&nbsp;&nbsp;";
+                    }
+                    if (i<3) {
+                        content1+="<div class='col-md-12'><div class='what_say_block'><div><h4 style='color:#085966'><span><a style='color: #2D727C' href='${pageContext.request.contextPath}/movers/profile-"+v.vendorId+"'>\n\
+                                            <b>"+v.vendorName+"</b></a></span><div class='rate' style='min-width: 85px;position: inherit !important;float: right;margin-left: 10px;' data-rate-value="+v.rating+"></div>\n\
+                                            <span style='float: right;font-weight: bold'>Rating: </span></h4>\n\
+                                            <p style='margin: 0px;'><span><b>"+reviewTitle+"</b></span></p><span class='text'>\n\
+                                            <q style='font-style: italic;text-align: justify'>"+fullReview+"</q>\n\
+                                            "+reviewStatusContent+"Posted by: "+v.name+"</p></span></span></div></div></div>";
+                    } else if (i<6) {
+                        content2+="<div class='col-md-12'><div class='what_say_block'><div><h4 style='color:#085966'><span><u>\n\
+                                            <b>"+v.vendorName+"</b></u></span><div class='rate' style='min-width: 85px;position: inherit !important;float: right;margin-left: 10px;' data-rate-value="+v.rating+"></div>\n\
+                                            <span style='float: right;font-weight: bold'>Rating: </span></h4>\n\
+                                            <p style='margin: 0px;'><span><b>"+reviewTitle+"</b></span></p><span class='text'>\n\
+                                            <q style='font-style: italic;text-align: justify'>"+fullReview+"</q>\n\
+                                            "+reviewStatusContent+"Posted by: "+v.name+"</p></span></span></div></div></div>";
+                    } else if (i<9) {
+                        content3+="<div class='col-md-12'><div class='what_say_block'><div><h4 style='color:#085966'><span><u>\n\
+                                            <b>"+v.vendorName+"</b></u></span><div class='rate' style='min-width: 85px;position: inherit !important;float: right;margin-left: 10px;' data-rate-value="+v.rating+"></div>\n\
+                                            <span style='float: right;font-weight: bold'>Rating: </span></h4>\n\
+                                            <p style='margin: 0px;'><span><b>"+reviewTitle+"</b></span></p><span class='text'>\n\
+                                            <q style='font-style: italic;text-align: justify'>"+fullReview+"</q>\n\
+                                            "+reviewStatusContent+"Posted by: "+v.name+"</p></span></span></div></div></div>";
+                    }
+                });
+                if (content1!=='') {
+                    finalContent+="<div class='content_slide clearfix'>"+content1+"</div>";
+                }
+                if (content2!=='') {
+                    finalContent+="<div class='content_slide clearfix'>"+content2+"</div>";
+                }
+                if (content3!=='') {
+                    finalContent+="<div class='content_slide clearfix'>"+content3+"</div>";
+                }
+                $('#reviewscontent').append(finalContent);
+                $(".content_slider").owlCarousel({
+                    direction: "ltr",
+                    slideSpeed: 800,
+                    autoPlay: 4000,
+                    itemsDesktop: false,
+                    itemsDesktopSmall: false,
+                    itemsTablet: false,
+                    itemsTabletSmall: false,
+                    itemsMobile: false,
+                    autoHeight: true,
+                    itemsCustom: [
+                        [0, 1],
+                        [450, 1],
+                        [786, 1],
+                        [1000, 1],
+                        [1200, 1]
+                    ],
+                    stopOnHover: true,
+                    navigation: false,
+                    pagination: true
+                });
+                //rating Options
+                $(".rate").rate({
+                    selected_symbol_type: 'fontawesome_star',
+                    max_value: 5,
+                    step_size: 0.50,
+                    readonly: true
+                });
+            }
+        });
+    }
+    function recentTips() {
+        var jsondata={"limit": 7};
+        $.ajax({
+            type: 'POST',
+            data: JSON.stringify(jsondata),
+            url: "${pageContext.request.contextPath}/movingtips/recenttips",
+            contentType: 'application/json',
+            dataType: 'json', //Expected data format from server
+            headers: {'Access-Control-Allow-Origin': '*'},
+            success: function (data, status) {
+                $('#recenttipsdiv').html('');
+                var content='';
+                var firstAccordian='';
+                $.each(data, function (i, v) {
+                    if (i===0)
+                        firstAccordian=true;
+                    else
+                        firstAccordian=false;
+                    content+="<div class='enar_occ_container' data-expanded="+firstAccordian+"><span class='enar_occ_title'>"+v.title+"</span>\n\
+                              <div class='enar_occ_content'><div class='acc_content'><div><p class='para'>"+$.trim($(v.description).text()).substring(0, 220)+"\
+                              <a href='${pageContext.request.contextPath}/movingtips/tip-"+v.id+"'>Read more...</a></p></div></div></div></div>";
+                });
+                $('#recenttipsdiv').append(content);
+                ideal_accordion();
+                recentReviews();
+            }
+        });
+    }
+</script>
+</body>
+</html>

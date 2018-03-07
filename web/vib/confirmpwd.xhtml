@@ -1,0 +1,58 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>VIB e-Money</title>
+        <h:outputStylesheet library="css" name="bootstrap.min.css"></h:outputStylesheet> 
+        <!--         <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>-->
+        <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>-->
+        <!--<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
+
+    </h:head>
+    <h:body>     
+        <h:form> 
+            <p:growl id="growl"  autoUpdate="true" /> 
+            <div class="container" style="padding-top: 150px">
+                <div class="col-md-3"></div>
+
+
+                <div class="col-md-6" style="border: 1px solid #eee;">
+                    <div class="col-md-6" style="padding-top: 75px">
+                        <h:graphicImage value="/assets/images/vibbig.png" styleClass="img-responsive" style="width:100%"/>
+                    </div>
+
+                    <div class="col-md-6" style="padding-top: 25px">
+                        <div class="login-panel panel panel-default">
+                            <div class="panel-heading" >
+                                <h3 class="panel-title">Set Password</h3>
+                            </div>
+                            <div class="panel-body">                                                     
+                                <div class="form-group"> 
+
+                                    <p:inputText placeholder="OTP"  value="#{UsersBean.vcrObj.otp}" title="OTP" style="width:100%" /><br/><br/>
+                                    <p:password match="pwd" id="pwd1" placeholder="Password"  value="#{UsersBean.vcrObj.password}" title="Password" style="width:100%" /><br/><br/>
+                                    <p:password id="pwd" placeholder="Confirm Password"  value="#{UsersBean.confirmpassword}" title="Confirm Password" style="width:100%" />
+                                </div>
+
+                                <p:commandButton ajax="false" value="Submit"  actionListener="#{UsersBean.verifyPassword}"  styleClass="btn btn-lg btn-danger btn-block" action="#{UsersBean.toIndex}"/>
+                                <!--                                <p:commandButton value="Resend OTP"  actionListener="{UsersBean.verifyPassword}"  styleClass="btn btn-lg btn-danger btn-block" action="{UsersBean.toIndex}"/>-->
+
+                                <p:remoteCommand name="rc" update="growl" actionListener="#{UsersBean.resendOtp}" />
+
+
+                                <p:commandButton type="button" onclick="rc()" value="Resend" icon="ui-icon-refresh" styleClass="btn btn-lg btn-danger btn-block"/>
+                                <br/>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-md-3"></div>
+            </div>
+        </h:form>        
+    </h:body>
+</html>
+

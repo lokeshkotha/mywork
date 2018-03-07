@@ -1,0 +1,75 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <ui:composition template="../includes/template.xhtml">
+            <ui:define name="maincontent"><br/>
+                <h:form>                    
+                    <div id="view-product-list" class="view-product-list">
+                        <!-- PRODUCT LIST -->
+                        <div class="container">
+                            <style type="text/css">
+                                .ui-widget-content{
+                                    border: none !important;
+                                }
+                            </style>
+                            <ul class="row product-list grid">
+                                <c:choose>
+                                    <c:when test="#{UsersBean.wishlist.size() > 0}">
+                                        <p:dataScroller value="#{UsersBean.wishlist}" var="wpd" chunkSize="4">
+                                            <c:if test="#{UsersBean.wishlist.size() > 4}">
+                                                <f:facet name="loader" >
+                                                    <p:commandButton type="button" value="More" icon="fa fa-chevron-circle-down" styleClass="view-more-button" />
+                                                </f:facet>
+                                            </c:if>
+                                            <li class="col-md-3">
+                                                <p:commandLink action="#{UsersBean.toDetails}" actionListener="#{ProductsBean.productDetails(wpd.id)}" ajax="false">
+                                                    <div class="left-block">                                                                                                                              
+                                                        <h:graphicImage value="#{wpd.smallimageurl}" style="height: 200px;width: 400px" />                                                               
+                                                        <!--                                                        <div class="quick-view">
+                                                                                                                    <a title="Add to my wishlist" class="heart" href="#"></a>
+                                                                                                                    <a title="Add to compare" class="compare" href="#"></a>
+                                                                                                                    <a title="Quick view" class="search" href="#"></a>
+                                                                                                                </div>-->
+                                                        <div class="add-to-cart">
+                                                            <p:commandButton ajax="false"  icon="fa fa-cart-arrow-down" style="border: none" value="Add To Cart" actionListener="#{UsersBean.addToCart(wpd.id)}"/>
+                                                        </div>
+                                                    </div>
+                                                    <div class="right-block" style="padding-bottom: 20px !important">
+                                                        <h5 class="product-name"><a href="#" style="color:#D82F28">#{wpd.productname}</a></h5>
+                                                        <div class="content_price">
+                                                            <span class="price product-price">$#{wpd.price}</span>
+                                                            <span class="price old-price">$52,00</span>
+                                                        </div>
+                                                    </div>
+                                                </p:commandLink> 
+                                            </li>
+                                        </p:dataScroller>
+                                    </c:when>
+                                    <c:otherwise>
+                                        <div class="ui-g" style="border-bottom: 1px dotted #E0DDF0">
+                                            <div class="ui-g-12" style="text-align: center">
+                                                <div class="badge" style="padding: 10px;background-color: rgb(216,47,40)">No Products In Your WishList!</div>
+                                            </div>
+                                        </div>
+                                    </c:otherwise>
+                                </c:choose>
+
+                            </ul>
+                        </div>
+                    </div>
+                    <br/>
+                </h:form>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>
+

@@ -1,0 +1,58 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title> 
+    </h:head>
+    <h:body>
+        <h:form>
+            <script type="text/javascript">
+                window.onload = function() {
+                    document.forms['uform'].submit();
+                };
+            </script> 
+            <style type="text/css">
+                .mine {
+                    margin: auto;
+                    position: absolute;
+                    top: 35%;
+                    width: 100%;
+                    text-align: center;
+                }
+                .loader {
+                    border: 16px solid #f3f3f3;
+                    border-radius: 50%;
+                    border-top: 16px solid #3498db;
+                    width: 120px;
+                    height: 120px;
+                    -webkit-animation: spin 2s linear infinite;
+                    animation: spin 2s linear infinite;
+                    margin: auto;
+                }
+
+                @-webkit-keyframes spin {
+                    0% { -webkit-transform: rotate(0deg); }
+                    100% { -webkit-transform: rotate(360deg); }
+                }
+
+                @keyframes spin {
+                    0% { transform: rotate(0deg); }
+                    100% { transform: rotate(360deg); }
+                }
+            </style>
+            <div class="container container-table">
+                <div class="mine">
+                    <div class="loader"></div>
+                    <div style="padding: 6px;color: rgb(52,152,219)"><b>Loading Please Wait...</b></div>
+                </div>
+            </div>
+            <form id="uform" action="#{UsersBean.paypalResponse()}">
+            </form>
+        </h:form>
+    </h:body>
+</html>
+

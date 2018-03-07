@@ -1,0 +1,72 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <h:head>
+        <title></title>
+    </h:head>
+    <h:body style="background-color: black">
+        <!--<ui:composition template="../include/template.xhtml">--> 
+        <!--<div class="wrapper">--> 
+        <!--<ui:define name="maincontent">-->
+        <!--                <script type="text/javascript">
+                            $("#pos").addClass("active");</script>-->
+        <!--                <script>
+                                    function myFunction() {
+                                    var input, filter, ul, li, a, i;
+                                            input = document.getElementById("myInput");
+                                            filter = input.value.toUpperCase();
+                                            ul = document.getElementById("myUL");
+                                            li = ul.getElementsByTagName("li");
+                                            for (i = 0; i & lt; li.length; i++) {
+                                    a = li[i].getElementsByTagName("p")[0];
+                                            if (a.innerHTML.toUpperCase().indexOf(filter) & gt; - 1) {
+                                    li[i].style.display = "";
+                                    } else {
+                                    li[i].style.display = "none";
+                                    }
+                                    }
+                                    }
+                        </script>-->
+        <!--                <script>
+                            $(document).ready(function myFunction() {
+                            $.ajax({
+                            type: "GET",
+                                    headers: {
+                                    Accept: "application/json;charset=utf-8",
+                                            "Content-Type": "application/json;charset=utf-8"
+                                    },
+                                    url: "https://maps.googleapis.com/maps/api/place/autocomplete/xml?input=Amoeba&types=establishment&key=AIzaSyAJ8lPDtztC76NZTlCSOdNfnYzLusEwKYY ",
+                                    success: function(doc) {
+                                    n = 5; //find length of response here and assign it to variable 'n'
+                                            var result = '';
+                                            $.each(doc.nl, function(i, v) {
+                                            result += '<a class="lv-item"><div class="lv-title">'
+                                                    + v.message +
+                                                    '</div><small class="lv-small">'
+                                                    + v.notificationdate +
+                                                    '</small></a>';
+                                                    $('.result').html(result);
+                                            });
+                                    },
+                                    dataType: "json",
+                                    complete: poll
+                            });
+                            });                </script>-->
+        <!--<input id="myInput" onkeyup="myFunction()" placeholder="Search for Games.." ></input>-->
+        <!--<h:inputText onkeyup="myFunction()"></h:inputText>-->
+        <center>
+            <p:barcode format="png" type="code128"  value="ASESTBR00002" style="width: 340px;height: 100px"></p:barcode>
+        </center> 
+        <center>
+            <p:graphicImage value="/code128.gif" style="width: 340px;height: 100px"></p:graphicImage>
+        </center>
+        <!--</ui:define>--> 
+        <!--</ui:composition>--> 
+    </h:body>
+</html>
+
