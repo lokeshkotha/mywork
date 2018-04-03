@@ -24,6 +24,8 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.mongodb.core.MongoOperations;
 import org.springframework.data.mongodb.core.aggregation.Aggregation;
+import static org.springframework.data.mongodb.core.aggregation.Aggregation.limit;
+import static org.springframework.data.mongodb.core.aggregation.Aggregation.skip;
 import org.springframework.data.mongodb.core.aggregation.AggregationResults;
 import static org.springframework.data.mongodb.core.aggregation.Fields.field;
 import org.springframework.data.mongodb.core.aggregation.LookupOperation;
@@ -152,4 +154,27 @@ public class TextSearch {
         List<MembershipListings> listingses = mongoOperation.find(q, MembershipListings.class);
         return listingses;
     }
+//    use distinct with skip and limit in spring data mongodb
+
+    public List<CampaignDetails> getAreaDistanceandServiceWiseVendorsByLimit(int chunkSize, int storedChunkSize, String areaCode, String distanceId, String serviceId) {
+        List<String> vendorsStringList;
+        try {
+            q = new Query();
+            criteria = new Criteria();
+            criteria.andOperator(Criteria.where("fromArea.areacode").is(areaCode), Criteria.where("services._id").is(new ObjectId(serviceId)), Criteria.where("distance._id").is(new ObjectId(distanceId)));
+//            not working with skip and limit
+//            q.addCriteria(criteria);
+//            q.limit(chunkSize);
+//            q.skip(storedChunkSize);
+//            vendorsStringList = mongoOperation.getCollection("campaignDetails").distinct("campaigns.vendors.vendorid", q.getQueryObject());
+            MatchOperation matchOperation = new MatchOperation(criteria);
+            Aggregation aggregation = Aggregation.newAggregation(matchOperation, limit(chunkSize), skip(storedChunkSize));
+            List<CampaignDetails> results = mongoOperation.aggregate(aggregation, CampaignDetails.class, CampaignDetails.class).getMappedResults();
+            return results;
+        } catch (Exception e) {
+            vendorsStringList = new ArrayList<>();
+            return null;
+        }
+    }
+
 }
