@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.hackr;
+package com.algo;
 
 import java.util.Arrays;
 
@@ -16,23 +16,6 @@ public class ArrRev {
     private static String[] ipChars = new String[]{"D", "@", "B", "$", "C", "w", "$"};
 
     public static void main(String[] args) {
-//        int splCharCount = 0;
-//        int charsCount = 0;
-//        for (String content : ipChars) {
-//            if (content.matches("[^A-Za-z]")) {
-//                splCharCount++;
-//            } else {
-//                charsCount++;
-//            }
-//        }
-//        System.out.println(splCharCount);
-//        for (int i = ipChars.length; i > 0; i--) {
-//            if (!ipChars[i].matches("[^A-Za-z]")) {
-//                String firstOne = ipChars[i];
-//                String secondOne = ipChars[ipChars.length - splCharCount];
-//                ipChars[i] = ipChars[i];
-//            }
-//        }
         int j = 0;
         int k = ipChars.length;
         for (int i = 0; i < k; i++) {

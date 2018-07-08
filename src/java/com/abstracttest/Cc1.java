@@ -12,8 +12,11 @@ package com.abstracttest;
 public class Cc1 extends Ab1 {
 
     public static void main(String[] args) {
-        Cc1 cc1 = new Cc1();
-        cc1.displayName();
+//        Cc1 cc1 = new Cc1();
+//        cc1.displayName();
+        Ab1 a = new Ab1() {
+        };
+        a.displayName();
     }
 //    
 //    public String displayName() {
@@ -21,8 +24,8 @@ public class Cc1 extends Ab1 {
 //        return "test";
 //    }
 
-    @Override
-    public String getAllNames() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+//    @Override
+//    public String getAllNames() {
+//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+//    }
 }

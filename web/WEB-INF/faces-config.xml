@@ -8,4 +8,9 @@
         <managed-bean-class>com.meta.PdfGenerator</managed-bean-class>
     
         <managed-bean-scope>session</managed-bean-scope></managed-bean>
+    <managed-bean>
+        <managed-bean-name>FileResizer</managed-bean-name>
+        <managed-bean-class>com.resizer.FileResizer</managed-bean-class>
+        <managed-bean-scope>view</managed-bean-scope>
+    </managed-bean>
 </faces-config>

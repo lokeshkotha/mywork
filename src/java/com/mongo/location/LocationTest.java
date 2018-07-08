@@ -1,4 +1,4 @@
-/*
+ /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -139,4 +139,33 @@ public class LocationTest {
 //            System.out.println(s);
 //        }
 //    }
+    
+//    //insertion query
+//var createLandmarkDoc = function (name, lng, lat) {
+//    return {
+//        name : name,
+//        loc : {
+//            type : "Point",
+//            coordinates : [lng, lat]
+//        }
+//    };
+//};
+//var addNewLandmark = function(name, lng, lat){
+//    db.location.insert(createLandmarkDoc(name, lng, lat));
+//};
+//
+//db.landmarks.drop();
+//// Step 1: Add points.
+//addNewLandmark("My location", 17.396878,78.445269);
+//
+//// Step 2: Create index
+//db.location.ensureIndex({
+//    loc : "2dsphere"
+//});
+////fetching query
+//var milesToRadian = function(miles){var earthRadiusInMiles = 3959;return miles / earthRadiusInMiles;};
+//var landmark = db.location.findOne({name: "My location"});
+//var query = {"loc" : {$geoWithin : {$centerSphere : [landmark.loc.coordinates, milesToRadian(0.5) ]}}};db.location.find(query).pretty();
+//
+
 }
