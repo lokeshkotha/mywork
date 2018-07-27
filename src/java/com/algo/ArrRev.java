@@ -5,33 +5,32 @@
  */
 package com.algo;
 
-import java.util.Arrays;
-import java.util.regex.Pattern;
-
 /**
  *
  * @author lokesh
  */
 public class ArrRev {
-    
+
     private static String[] ipChars = new String[]{"D", "@", "B", "$", "C", "w", "$"};
     private static String ipString = "D@B$Cw$";
-    
+
     public static void main(String[] args) {
         System.out.println(reverseString(ipString));
     }
-    
+
     private static String reverseString(String s) {
         if (s.equals("")) {
             return "";
         }
+        String output;
         if (isSpecialCharacter(s.charAt(s.length() - 1))) {
-            
+            output = s.charAt(s.length() - 1) + reverseString(s.substring(0, s.length() - 1));
+        } else {
+            output = s.charAt(s.length() - 1) + reverseString(s.substring(0, s.length() - 1));
         }
-        String output = s.charAt(s.length() - 1) + reverseString(s.substring(0, s.length() - 1));
         return output;
     }
-    
+
     private static boolean isSpecialCharacter(Character c) {
         return c != 32
                 && //not a space 
@@ -41,7 +40,7 @@ public class ArrRev {
                 && //not an uppercase alphabet
                 (c < 97 || c > 122);	//not a lowercase alphabet
     }
-    
+
 }
 // int j = 0;
 //        int k = ipChars.length;

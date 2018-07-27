@@ -15,13 +15,18 @@ import java.util.Date;
 public class Test {
 
     public static void main(String[] args) throws Exception {
-        Calendar calendar = Calendar.getInstance();
-        String unique = String.valueOf(calendar.getTimeInMillis());
-        String test1="sklandv-4614";
-        String test2=test1.replaceAll("[^a-zA-Z0-9 -]", "");
-        String number = "12346579" + unique.toLowerCase().replaceAll("//s", "-");
-//        String number2 = number.toLowerCase();
-        System.out.println("12346579" + unique.toLowerCase().replaceAll("//s", "-"));
+//        System.out.println(Singleton.Active.getName());
+//        System.out.println(Singleton.Inactive.getName());
+        StaticSingleton staticSingleton=StaticSingleton.getInstance();
+        StaticSingleton staticSingleton2=StaticSingleton.getInstance();
+//        Singleton.TestInstance.show();
+//        Calendar calendar = Calendar.getInstance();
+//        String unique = String.valueOf(calendar.getTimeInMillis());
+//        String test1="sklandv-4614";
+//        String test2=test1.replaceAll("[^a-zA-Z0-9 -]", "");
+//        String number = "12346579" + unique.toLowerCase().replaceAll("//s", "-");
+////        String number2 = number.toLowerCase();
+//        System.out.println("12346579" + unique.toLowerCase().replaceAll("//s", "-"));
 //        Code128 c=new Code128();
 //        c.setData("ASESTBR00002");
 //        c.setResolution(72);

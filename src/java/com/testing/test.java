@@ -27,16 +27,22 @@ public class test {
 //            String finalXML = testxml.substring(0, testxml.lastIndexOf("<?xml version='1.0'?>"));
 //            System.out.println(finalXML);
 //            SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
-            SimpleDateFormat sdf2 = new SimpleDateFormat("MM/dd/yyyy");
-            Date startDate = sdf2.parse(sdf2.format(new Date()));
-            Calendar cal = Calendar.getInstance();
-            cal.setTime(startDate);
-            cal.add(Calendar.HOUR_OF_DAY, 23);
-            cal.add(Calendar.MINUTE, 59);
-            cal.add(Calendar.SECOND, 59);
-            Date endDate = cal.getTime();
-            System.out.println(startDate);
-            System.out.println(endDate);
+//            SimpleDateFormat sdf2 = new SimpleDateFormat("MM/dd/yyyy");
+//            Date startDate = sdf2.parse(sdf2.format(new Date()));
+//            Calendar cal = Calendar.getInstance();
+//            cal.setTime(startDate);
+//            cal.add(Calendar.HOUR_OF_DAY, 23);
+//            cal.add(Calendar.MINUTE, 59);
+//            cal.add(Calendar.SECOND, 59);
+//            Date endDate = cal.getTime();
+//            System.out.println(startDate);
+//            System.out.println(endDate);
+            String s1 = "Sachin";
+            String s2 = "Sac";
+            String s3 = "hin";
+            s3 = s1.substring(0, s1.length());
+            System.out.println(s1 == s2);
+            System.out.println(s1 == s2+s3);
         } catch (Exception e) {
             e.printStackTrace();
         }
