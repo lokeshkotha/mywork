@@ -5,6 +5,11 @@
  */
 package com.spring;
 
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
+
 /**
  *
  * @author Lokesh Kotha
@@ -83,5 +88,11 @@ public class DiffControllers {
 //        } else {
 //            return "You failed to upload because the file was empty.";
 //        }
+//    }
+//     @RequestMapping(value = "/getcitiesbyregionid/{regionId}", method = RequestMethod.GET)
+//    public @ResponseBody
+//    CitiesList getCitiesByRegionId(@PathVariable String regionId) {
+//        CitiesList<CityDTResponse> list = new CitiesList<>(utilityDAO.getCitiesByRegion(regionId));
+//        return list;
 //    }
 }
